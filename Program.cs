@@ -30,10 +30,12 @@ internal partial class Program
             foreach (var item in enterprise[i].Contacts)
             {
                 string contacts_name = item.Name;
-                string phone = Convert.ToString(item.Phones[0]);
-                string email = Convert.ToString(item.Emails[0]);
+                string contacts_title = item.Title;
 
-                contacts.Add(new { contacts_name, phone, email });
+                string phone = Convert.ToString(item.Phones[0].PhonePhone);
+                string email = Convert.ToString(item.Emails[0].EmailEmail);
+
+                contacts.Add(new { contacts_name, contacts_title, phone, email });
             }
 
             informations.Add(new { id, name, url, resume, contacts });
@@ -53,8 +55,9 @@ internal partial class Program
             main_sheet.Cell("D1").Value = "Resume";
 
             contacts_sheet.Cell("A1").Value = "Name";
-            contacts_sheet.Cell("B1").Value = "Email";
+            contacts_sheet.Cell("B1").Value = "Title";
             contacts_sheet.Cell("C1").Value = "Phone";
+            contacts_sheet.Cell("D1").Value = "Email";
 
             for (int i = 0; i < informations.Count; i++)
             {
@@ -73,8 +76,9 @@ internal partial class Program
                 foreach (var item in informations[i].contacts)
                 {
                     contacts_sheet.Cell(a).Value = item.contacts_name;
-                    contacts_sheet.Cell(b).Value = item.phone;
-                    contacts_sheet.Cell(b).Value = item.email;
+                    contacts_sheet.Cell(b).Value = item.contacts_title;
+                    contacts_sheet.Cell(c).Value = item.phone;
+                    contacts_sheet.Cell(d).Value = item.email;
                 }
 
             }
@@ -83,18 +87,5 @@ internal partial class Program
             Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
 
         }
-
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
