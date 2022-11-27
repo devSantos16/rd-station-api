@@ -34,7 +34,7 @@ internal partial class Program
 
                 string contacts_name = item.Name;
                 string contacts_title = item.Title;
-                
+
                 foreach (var itemPhone in item.Phones)
                 {
                     phone.Add(itemPhone.Phone);
@@ -85,20 +85,22 @@ internal partial class Program
 
                 foreach (var item in informations[i].contacts)
                 {
-
+                    string phones = "";
+                    string emails = "";
+                    
                     contacts_sheet.Cell(a).Value = item.contacts_name;
                     contacts_sheet.Cell(b).Value = item.contacts_title;
 
-                    string phones = "";
-                    foreach(var itemPhone in item.phone){
+
+                    foreach (var itemPhone in item.phone)
+                    {
                         phones += $" [{itemPhone}] ";
                     }
 
                     contacts_sheet.Cell(c).Value = phones;
 
-                    string emails = ""; 
-
-                    foreach(var itemEmail in item.email){
+                    foreach (var itemEmail in item.email)
+                    {
                         emails += $" [{itemEmail}] ";
                     }
 
