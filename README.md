@@ -6,7 +6,7 @@ Para resolução do problema eu utilizei a biblioteca Newtonsoft.Json para seria
 
 ### Linguagens 
 
-- Newtonsoft.Json
+- .NET | C#
 
 
 ### Nuget Package
