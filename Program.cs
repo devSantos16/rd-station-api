@@ -29,11 +29,21 @@ internal partial class Program
 
             foreach (var item in enterprise[i].Contacts)
             {
+                List<string> phone = new List<string>();
+                List<string> email = new List<string>();
+
                 string contacts_name = item.Name;
                 string contacts_title = item.Title;
+                
+                foreach (var itemPhone in item.Phones)
+                {
+                    phone.Add(itemPhone.Phone);
+                }
 
-                string phone = Convert.ToString(item.Phones[0].PhonePhone);
-                string email = Convert.ToString(item.Emails[0].EmailEmail);
+                foreach (var itemEmail in item.Emails)
+                {
+                    email.Add(itemEmail.Email);
+                }
 
                 contacts.Add(new { contacts_name, contacts_title, phone, email });
             }
@@ -75,10 +85,25 @@ internal partial class Program
 
                 foreach (var item in informations[i].contacts)
                 {
+
                     contacts_sheet.Cell(a).Value = item.contacts_name;
                     contacts_sheet.Cell(b).Value = item.contacts_title;
-                    contacts_sheet.Cell(c).Value = item.phone;
-                    contacts_sheet.Cell(d).Value = item.email;
+
+                    string phones = "";
+                    foreach(var itemPhone in item.phone){
+                        phones += $" [{itemPhone}] ";
+                    }
+
+                    contacts_sheet.Cell(c).Value = phones;
+
+                    string emails = ""; 
+
+                    foreach(var itemEmail in item.email){
+                        emails += $" [{itemEmail}] ";
+                    }
+
+                    contacts_sheet.Cell(d).Value = emails;
+
                 }
 
             }

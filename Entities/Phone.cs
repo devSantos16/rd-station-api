@@ -2,9 +2,9 @@ namespace rd_station_api.Entities
 {
     public partial class Temperatures
     {
-        public partial class Phone
+        public partial class Phones
     {
-        public string PhonePhone { get; set; }
+        public string Phone { get; set; }
         public string Type { get; set; }
     }
     }
